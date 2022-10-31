@@ -53,6 +53,8 @@ jobs:
         # Set the GRADLE_ENTERPRISE_ACCESS_KEY so that Gradle Build Scans are generated
         GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GE_ACCESS_KEY }}
 
+    - name: Check CodeQL DB files
+      run: ls -la /home/runner/work/_temp/codeql_databases/java
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
