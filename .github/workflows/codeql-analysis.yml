@@ -54,7 +54,7 @@ jobs:
         GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GE_ACCESS_KEY }}
 
     - name: Check CodeQL DB files
-      run: ls -la /home/runner/work/_temp/codeql_databases/java/trap/java    
+      run: tree /home/runner/work/_temp/codeql_databases/java/trap/java    
       
     - name: Show build file
       run: cat /home/runner/work/_temp/codeql_databases/log/build-tracer.log
