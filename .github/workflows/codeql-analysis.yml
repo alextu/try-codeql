@@ -35,6 +35,13 @@ jobs:
         distribution: temurin
         java-version: 11
 
+    - name: Cache Gradle Modules
+      uses: actions/cache@v3
+      with:
+        path: |
+          /home/runner/work/_temp/codeql_databases/java
+        key: ${{ runner.os }}-gradle-cache-${{ hashFiles('/home/runner/work/_temp/codeql_databases/java') }}
+
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
@@ -54,7 +61,8 @@ jobs:
         GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GE_ACCESS_KEY }}
 
     - name: Check CodeQL DB files
-      run: tree /home/runner/work/_temp/codeql_databases/java/trap/java    
+      run: tree /home/runner/work/_temp/codeql_databases/java
+    
       
     - name: Show build file
       run: cat /home/runner/work/_temp/codeql_databases/log/build-tracer.log
