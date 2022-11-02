@@ -73,7 +73,7 @@ jobs:
       with:
         name: codeql-db
         path: |
-          /opt/hostedtoolcache/CodeQL/0.0.0-20221010/x64/codeql/java/tools/codeql-java-agent.jar
+          /opt/hostedtoolcache/CodeQL/0.0.0-20221024/x64/codeql/java/tools/codeql-java-agent.jar
           /home/runner/work/_temp/codeql_databases/java
     
       
