@@ -35,12 +35,12 @@ jobs:
         distribution: temurin
         java-version: 11
 
-    # - name: Compile to cache compiled classes
-    #   if: ${{ matrix.language == 'java' }}
-    #   run: ./gradlew clean testClasses
-    #   env:
-    #     # Set the GRADLE_ENTERPRISE_ACCESS_KEY so that Gradle Build Scans are generated
-    #     GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GE_ACCESS_KEY }}
+    - name: Compile to cache compiled classes
+      if: ${{ matrix.language == 'java' }}
+      run: ./gradlew clean testClasses
+      env:
+        # Set the GRADLE_ENTERPRISE_ACCESS_KEY so that Gradle Build Scans are generated
+        GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GE_ACCESS_KEY }}
 
     # - name: Cache Gradle Modules
     #   uses: actions/cache@v3
@@ -73,7 +73,6 @@ jobs:
       with:
         name: codeql-db
         path: |
-          /opt/hostedtoolcache/CodeQL/0.0.0-20221024/x64/codeql/java/tools/codeql-java-agent.jar
           /home/runner/work/_temp/codeql_databases/java
     
       
